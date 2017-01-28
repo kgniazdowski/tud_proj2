@@ -1,23 +1,43 @@
 package com.tud.hurtowniafarmaceutyczna.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by karol on 28.01.2017.
  */
+@Entity
+@Table
+@NamedQueries({
+        //@NamedQuery(name = "Producer.getAllProducers", query = "Select p from Producer p")
+})
 public class Producer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     public int id;
     @Column(unique = true)
     public String nazwa;
+    @Column
     public String miasto;
+    @Column
     public String ulica;
+    @Column
     public String kodPocztowy;
+    @Column
     public int nr;
+
+    public Producer()
+    {
+
+    }
+
+    public Producer(String nazwa, String miasto, String ulica, String kodPocztowy, int nr) {
+        this.nazwa = nazwa;
+        this.miasto = miasto;
+        this.ulica = ulica;
+        this.kodPocztowy = kodPocztowy;
+        this.nr = nr;
+    }
 
     public int getId() {
         return id;

@@ -1,20 +1,30 @@
 package com.tud.hurtowniafarmaceutyczna.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by karol on 28.01.2017.
  */
+@Entity
+@Table
 public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     public int id;
+    @Column
     public String nazwa;
+    @Column
     public double cena;
+    @Column
     public int ilosc;
+
     //public int producentId;
+
+    public Medicine()
+    {
+
+    }
 
     public int getId() {
         return id;
