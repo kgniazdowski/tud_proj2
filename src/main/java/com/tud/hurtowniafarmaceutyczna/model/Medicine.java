@@ -18,8 +18,9 @@ public class Medicine {
     public double cena;
     @Column
     public int ilosc;
-
-    //public int producentId;
+    
+    @Column
+    public Producer producent;
 
     public Medicine()
     {
@@ -57,4 +58,13 @@ public class Medicine {
     public void setIlosc(int ilosc) {
         this.ilosc = ilosc;
     }
+
+	public Producer getProducent() {
+		return producent;
+	}
+
+	public void setProducent(Producer producent) {
+		this.producent = producent;
+	}
+    
 }
