@@ -22,6 +22,7 @@ public class Medicine {
     @Column
     public int ilosc;
     @Column
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Producer producent;
 
     public Medicine()
