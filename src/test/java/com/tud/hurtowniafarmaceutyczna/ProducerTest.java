@@ -38,8 +38,23 @@ public class ProducerTest {
         Producer producer = new Producer(nazwaProducenta, miastoProducenta, ulicaProducenta, kodPocztowyProducenta, nrProducenta);
         producerController.AddProducer(producer);
 
-        /*List<Producer> producentList = producerController.GetAllProducers();
+        List<Producer> producentList = producerController.GetAllProducers();
         Producer insertedProducent = producentList.get(0);
-        assertEquals(nazwaProducenta, insertedProducent.getNazwa());*/
+        assertEquals(nazwaProducenta, insertedProducent.getNazwa());
+    }
+    
+    @Test
+    public void CheckGettingAllProducers()
+    {
+    List<Producer> producentList = producerController.GetAllProducers();
+    assertEquals(0, producentList.size());
+    Producer producent = new Producer(nazwaProducenta, miastoProducenta, ulicaProducenta, kodPocztowyProducenta, nrProducenta);
+    producerController.AddProducer(producent);
+    producentList = producerController.GetAllProducers();
+    assertEquals(1, producentList.size());
+    producent = new Producer(nazwaProducenta + "NEW", miastoProducenta, ulicaProducenta, kodPocztowyProducenta, nrProducenta);
+    producerController.AddProducer(producent);
+    producentList = producerController.GetAllProducers();
+    assertEquals(2, producentList.size());
     }
 }

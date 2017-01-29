@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table
 @NamedQueries({
-        //@NamedQuery(name = "Producer.getAllProducers", query = "Select p from Producer p")
+        @NamedQuery(name = "Producer.getAllProducers", query = "Select p from Producer p")
 })
 public class Producer {
     @Id
