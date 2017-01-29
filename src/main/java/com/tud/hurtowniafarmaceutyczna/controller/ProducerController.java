@@ -28,6 +28,11 @@ public class ProducerController {
     	Producer producerToDelete = (Producer) sessionFactory.getCurrentSession().get(Producer.class, producer.getId());
     	sessionFactory.getCurrentSession().delete(producerToDelete);
     }
+    
+    public void UpdateProducer(Producer producer)
+    {
+    	sessionFactory.getCurrentSession().update(producer);
+    }
 
     @SuppressWarnings("unchecked")
 	public List<Producer> GetAllProducers()

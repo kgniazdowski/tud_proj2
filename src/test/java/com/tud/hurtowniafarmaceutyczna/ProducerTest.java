@@ -71,4 +71,28 @@ public class ProducerTest {
     assertEquals(1, producentList.size());
     assertEquals(nazwaProducenta + "NEW", producentList.get(0).getNazwa());
     }
+    
+    @Test
+    public void CheckUpdatingProducer()
+    {
+    Producer producent = new Producer(nazwaProducenta, miastoProducenta, ulicaProducenta, kodPocztowyProducenta, nrProducenta);
+    producerController.AddProducer(producent);
+    producent.setNazwa(nazwaProducenta + "R");
+    producent.setMiasto(miastoProducenta + "R");
+    producent.setUlica(ulicaProducenta + "R");
+    producent.setKodPocztowy(kodPocztowyProducenta + "R");
+    producent.setNr(9);
+    producerController.UpdateProducer(producent);
+    List<Producer> producentList = producerController.GetAllProducers();
+    assertEquals(1, producentList.size());
+    assertEquals("BAYERR", producentList.get(0).getNazwa());
+    assertEquals(miastoProducenta + "R", producentList.get(0).getMiasto());
+    assertEquals(ulicaProducenta + "R", producentList.get(0).getUlica());
+    assertEquals(kodPocztowyProducenta + "R", producentList.get(0).getKodPocztowy());
+    producent.setNazwa(nazwaProducenta);
+    assertEquals(9, producentList.get(0).getNr());
+    producerController.UpdateProducer(producent);
+    producentList = producerController.GetAllProducers();
+    assertEquals("BAYER", producentList.get(0).getNazwa());
+    }
 }
