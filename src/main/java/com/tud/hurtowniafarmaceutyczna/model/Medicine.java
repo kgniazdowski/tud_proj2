@@ -7,6 +7,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table
+@NamedQueries({
+    @NamedQuery(name = "Medicine.getAllMedicines", query = "Select m from Medicine m")
+})
 public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +21,6 @@ public class Medicine {
     public double cena;
     @Column
     public int ilosc;
-    
     @Column
     public Producer producent;
 
