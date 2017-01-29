@@ -8,7 +8,8 @@ import javax.persistence.*;
 @Entity
 @Table
 @NamedQueries({
-        @NamedQuery(name = "Producer.getAllProducers", query = "Select p from Producer p")
+        @NamedQuery(name = "Producer.getAllProducers", query = "Select p from Producer p"),
+        @NamedQuery(name = "Producer.getByName", query = "Select p from Producer p where p.nazwa = :nazwa")
 })
 public class Producer {
     @Id

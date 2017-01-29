@@ -95,4 +95,21 @@ public class ProducerTest {
     producentList = producerController.GetAllProducers();
     assertEquals("BAYER", producentList.get(0).getNazwa());
     }
+    
+    @Test
+    public void CheckGettingProducerByName()
+    {
+        Producer producer1 = new Producer(nazwaProducenta, miastoProducenta, ulicaProducenta, kodPocztowyProducenta, nrProducenta);
+        Producer producer2 = new Producer(nazwaProducenta + "NEW", miastoProducenta + "NEW", ulicaProducenta + "NEW", kodPocztowyProducenta + "NEW", 99);
+        
+        producerController.AddProducer(producer1);
+        producerController.AddProducer(producer2);
+        
+        Producer producerFromBase = producerController.GetProducerByName(nazwaProducenta);
+        assertEquals(producer1.getNazwa(), producerFromBase.getNazwa());
+        assertEquals(producer1.getMiasto(), producerFromBase.getMiasto());
+        
+        producerFromBase = producerController.GetProducerByName(nazwaProducenta + "NEW");
+        assertEquals(producer2, producerFromBase);
+    }
 }

@@ -39,4 +39,9 @@ public class ProducerController {
     {
         return sessionFactory.getCurrentSession().getNamedQuery("Producer.getAllProducers").list();
     }
+    
+    public Producer GetProducerByName(String nazwa)
+    {
+    	return (Producer) sessionFactory.getCurrentSession().getNamedQuery("Producer.getByName").setParameter("nazwa", nazwa).uniqueResult();
+    }
 }
